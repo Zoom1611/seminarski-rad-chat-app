@@ -29,7 +29,6 @@ export default {
   props: [],
   methods: {
     sendMessage() {
-      debugger;
       this.$emit("sendMessage", this.message);
       if (this.message === "") {
         return;
@@ -40,4 +39,33 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.message-input {
+  width: 100%;
+  margin-top: 8px;
+  font-size: 16px;
+  padding: 5px;
+  border-radius: 8px;
+  border: 1px solid #75aafd;
+  overflow-wrap: break-word;
+  resize: none;
+}
+.message-input:focus {
+  outline: none !important;
+  border-color: #75aafd;
+  box-shadow: 0 0 10px #75aafd;
+}
+.send-button {
+  margin-top: 8px;
+  padding: 6px 10px;
+  font-size: 16px;
+  background-color: #75aafd;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-left: 10px;
+}
+.send-button:hover {
+  background-color: #acccff;
+}
+</style>
