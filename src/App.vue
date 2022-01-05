@@ -4,10 +4,16 @@
   </div>
   <div class="my-container">
     <div class="row">
-      <div class="col-lg-3 col-md-3 col-sm-3 line" v-if="members.length !== 0">
+      <div
+        class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 line"
+        v-if="members.length !== 0"
+      >
         <OnlineMembers :members="members" />
       </div>
-      <div class="col-lg-8 col-md-8 col-sm-8 scrollbar" id="scrollContent">
+      <div
+        class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xl-8 scrollbar"
+        id="scrollContent"
+      >
         <Messages :messageList="messageList" />
       </div>
     </div>
@@ -47,7 +53,6 @@ export default {
   },
   mounted() {
     drone.on("open", (error) => {
-      // otvaranje veze sa scaledroneom
       if (error) {
         console.log(error);
       }
@@ -83,10 +88,12 @@ export default {
   },
   methods: {
     messagePublish(message) {
-      drone.publish({
-        room: "observable-room",
-        message,
-      });
+      if (message !== "") {
+        drone.publish({
+          room: "observable-room",
+          message,
+        });
+      }
     },
     newMsg(text, member) {
       this.messageInfo = {
@@ -105,6 +112,9 @@ export default {
         this.messageInfo.isHost = true;
       } else {
         this.messageInfo.isHost = false;
+      }
+      if (text === "") {
+        return;
       }
       this.messageList.push(this.messageInfo);
       const date = new Date();
@@ -144,7 +154,6 @@ export default {
   margin: 0 100px;
 }
 
-
 /* MESSAGE BOX CSS*/
 
 .avatar {
@@ -154,8 +163,8 @@ export default {
 }
 
 .scrollbar {
-  height: 500px;
   overflow-y: auto;
+  height: 500px;
 }
 ::-webkit-scrollbar {
   width: 10px;

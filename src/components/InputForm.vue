@@ -1,6 +1,7 @@
 <template>
-  <div class="col-md-3 col-sm-3"></div>
-  <div class="col-md-8 col-sm-8">
+  <div
+    class="col-xs-10 col-sm-10 col-md-8 col-lg-8 col-xl-8 col-md-offset-3 col-lg-offset-3 col-xl-offset-3"
+  >
     <textarea
       autofocus
       type="text"
@@ -14,7 +15,7 @@
       rows="1"
     />
   </div>
-  <div class="col-md-1 col-sm-1">
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
     <button class="send-button" @click="sendMessage">Send</button>
   </div>
 </template>
@@ -27,6 +28,7 @@ export default {
     };
   },
   props: [],
+  emits: ["sendMessage"],
   methods: {
     sendMessage() {
       this.$emit("sendMessage", this.message);

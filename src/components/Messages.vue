@@ -42,6 +42,7 @@
         </div>
       </div>
       <div
+        class="msg-time"
         :class="{
           'flex-end-class': msg.isHost,
           'flex-start-class': !msg.isHost,
@@ -84,6 +85,9 @@ export default {
   display: inline-block;
   border-radius: 12px;
   padding: 10px;
+}
+.msg-time {
+  color: gray;
 }
 .flex-end-class {
   display: flex;
