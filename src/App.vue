@@ -2,7 +2,7 @@
   <div class="title">
     <h1>{{ title }}</h1>
   </div>
-  <div class="my-container">
+  <div class="myContainer">
     <div class="row">
       <div
         class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-xl-3 line"
@@ -26,7 +26,7 @@
 <script>
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
-import { drone } from "./components/conneciton.js";
+import { drone } from "./services/conneciton.js";
 import OnlineMembers from "./components/OnlineMembers.vue";
 import InputForm from "./components/InputForm.vue";
 import Messages from "./components/Messages.vue";
@@ -127,7 +127,7 @@ export default {
   },
   watch: {
     messageList: {
-      handler(val, oldVal) {
+      handler() {
         setTimeout(function () {
           const element = document.getElementById("scrollContent");
           element.scrollTop = element.scrollHeight - element.clientHeight;
@@ -150,18 +150,14 @@ export default {
   margin-left: -8px;
   margin-bottom: 24px;
 }
-.my-container {
+.myContainer {
   margin: 0 100px;
 }
-
-/* MESSAGE BOX CSS*/
-
 .avatar {
   height: 35px;
   width: 35px;
   border-radius: 50%;
 }
-
 .scrollbar {
   overflow-y: auto;
   height: 500px;
@@ -170,16 +166,13 @@ export default {
   width: 10px;
   height: 10px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--lightestgrey);
 }
-
 ::-webkit-scrollbar-thumb {
   background: #b4d0fd;
   border-radius: 5px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: #9aabb7;
 }

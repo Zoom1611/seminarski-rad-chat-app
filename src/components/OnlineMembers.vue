@@ -1,5 +1,5 @@
 <template>
-  <div class="member-count-align">
+  <div class="memberCountAlign">
     <span><i class="mdi mdi-account"></i></span>
     <span>{{ members.length }}</span>
     <button class="showUsersBtn" @click="handleShowUsers">
@@ -7,10 +7,10 @@
     </button>
   </div>
   <div
-    class="members-list-box usersBox"
+    class="membersListBox usersBox"
     :class="{ showUsers: showUsers, hideUsers: !showUsers }"
   >
-    <div class="members-list" v-for="(sender, index) in members" :key="index">
+    <div class="membersList" v-for="(sender, index) in members" :key="index">
       <div
         class="avatar"
         :style="`background-color: ${sender.clientData.color}`"
@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style>
-.member-count-align {
+.memberCountAlign {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -55,7 +55,7 @@ i {
   font-size: 24px;
   margin-right: 3px;
 }
-.members-list {
+.membersList {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -93,7 +93,7 @@ i {
   }
 }
 @media screen and (min-width: 993px) {
-  .members-list-box {
+  .membersListBox {
     display: block;
   }
 }

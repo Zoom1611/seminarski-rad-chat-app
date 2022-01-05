@@ -1,6 +1,6 @@
 <template>
-  <div class="message-padding" v-for="msg in messageList" :key="msg.id">
-    <div class="user-info" :class="{ isHostClass: msg.isHost }">
+  <div class="msgPadding" v-for="msg in messageList" :key="msg.id">
+    <div class="userInfo" :class="{ isHostClass: msg.isHost }">
       <div
         class="avatar col-lg-2"
         :style="`background-color: ${msg.color}`"
@@ -8,8 +8,8 @@
       <div
         class="col-lg-2 sender"
         :class="{
-          'flex-end-class': msg.isHost,
-          'flex-start-class': !msg.isHost,
+          flexEndClass: msg.isHost,
+          flexStartClass: !msg.isHost,
         }"
       >
         {{ msg.sender }}
@@ -18,23 +18,23 @@
 
     <div :class="{ isHostClass: msg.isHost }">
       <div
-        class="msg-box"
+        class="msgBox"
         :class="{
-          'flex-end-class': msg.isHost,
-          'flex-start-class': !msg.isHost,
+          flexEndClass: msg.isHost,
+          flexStartClass: !msg.isHost,
         }"
       >
         <div
           :class="{
-            'flex-end-class': msg.isHost,
-            'flex-start-class': !msg.isHost,
+            flexEndClass: msg.isHost,
+            flexStartClass: !msg.isHost,
           }"
         >
           <div
-            class="message-text"
+            class="msgText"
             :class="{
-              'message-text-sender': msg.isHost,
-              'message-text-reciever': !msg.isHost,
+              msgTextSender: msg.isHost,
+              msgTextReciever: !msg.isHost,
             }"
           >
             {{ msg.text }}
@@ -42,10 +42,10 @@
         </div>
       </div>
       <div
-        class="msg-time"
+        class="msgTime"
         :class="{
-          'flex-end-class': msg.isHost,
-          'flex-start-class': !msg.isHost,
+          flexEndClass: msg.isHost,
+          flexStartClass: !msg.isHost,
         }"
       >
         {{ msg.time }}
@@ -65,46 +65,46 @@ export default {
 </script>
 
 <style>
-.message-padding {
+.msgPadding {
   padding-bottom: 15px;
 }
-.user-info {
+.userInfo {
   display: flex;
   align-items: center;
 }
 .sender {
   color: gray;
 }
-.msg-box {
+.msgBox {
   margin-bottom: 8px;
   margin-top: 8px;
 }
-.message-text {
+.msgText {
   overflow-wrap: break-word;
   max-width: 300px;
   display: inline-block;
   border-radius: 12px;
   padding: 10px;
 }
-.msg-time {
+.msgTime {
   color: gray;
 }
-.flex-end-class {
+.flexEndClass {
   display: flex;
   justify-content: flex-end;
 }
-.flex-start-class {
+.flexStartClass {
   display: flex;
   justify-content: flex-start;
 }
 .isHostClass {
   flex-direction: row-reverse;
 }
-.message-text-sender {
+.msgTextSender {
   background-color: #75aafd;
   color: white;
 }
-.message-text-reciever {
+.msgTextReciever {
   background-color: #e5e5e5;
   color: black;
 }
