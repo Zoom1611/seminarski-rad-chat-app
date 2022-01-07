@@ -1,25 +1,23 @@
 <template>
-  <form>
-    <div
-      class="col-xs-10 col-sm-10 col-md-8 col-lg-8 col-xl-8 col-md-offset-3 col-lg-offset-3 col-xl-offset-3"
-    >
-      <textarea
-        autofocus
-        type="text"
-        name="message"
-        id="message"
-        class="msgInput"
-        placeholder="Type a message..."
-        v-model="message"
-        @keydown.enter.prevent="sendMessage"
-        autocomplete="off"
-        rows="1"
-      />
-    </div>
-    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
-      <button class="sendBtn" @click="sendMessage">Send</button>
-    </div>
-  </form>
+  <div
+    class="col-xs-10 col-sm-10 col-md-8 col-lg-8 col-xl-8 col-md-offset-3 col-lg-offset-3 col-xl-offset-3"
+  >
+    <textarea
+      autofocus
+      type="text"
+      name="message"
+      id="message"
+      class="msgInput"
+      placeholder="Type a message..."
+      v-model="message"
+      @keydown.enter.prevent="sendMessage"
+      autocomplete="off"
+      rows="1"
+    />
+  </div>
+  <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 col-xl-1">
+    <button class="sendBtn" @click="sendMessage">Send</button>
+  </div>
 </template>
 
 <script>
